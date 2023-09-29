@@ -502,7 +502,7 @@ class Client(object):
         replication=replication,
         buffersize=buffersize,
       )
-    loc = res.headers['location']
+    loc = re.sub(r"[a-z]{2}[0-9]{2}\.[a-z]{2}\.edu\.tr", "127.0.1.1", res.headers['location'])
 
     def consumer(_data):
       """Thread target."""
